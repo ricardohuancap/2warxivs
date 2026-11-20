@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crónicas de la II Guerra Mundial | Mapa de conexiones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header class="main-header">
+        <div class="logo">GRUPO 4 • WARXIVS</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">1. Causas e Inicio</a></li>
+                <li><a href="frentes.html">2. Frentes de Batalla</a></li>
+                <li><a href="tecnologia.html">3. Personajes</a></li>
+                <li><a href="vida-civil.html" class="active">4. Mapa de conexiones</a></li>
+                <li><a href="quiz.html" class="btn-quiz">Ponte a Prueba</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Reutiliza .container y .hero de tu CSS -->
+    <main class="container" style="max-width: 1100px;">
+        <section class="hero">
+            <h1>Mapa de Conexiones Históricas</h1>
+            
+        </section>
+
+        <!-- Reutiliza .tactical-board de tu CSS -->
+        <section class="tactical-board">
+
+            <!-- Inputs ocultos (hermanos de .node-scroll-container y .battle-intel) -->
+            <input type="radio" name="hist-node" id="n-versalles" class="node-radio">
+            <input type="radio" name="hist-node" id="n-depresion" class="node-radio">
+            <input type="radio" name="hist-node" id="n-hitler" class="node-radio" checked>
+            <input type="radio" name="hist-node" id="n-reichstag" class="node-radio">
+            <input type="radio" name="hist-node" id="n-pacto" class="node-radio">
+            <input type="radio" name="hist-node" id="n-polonia" class="node-radio">
+            <input type="radio" name="hist-node" id="n-barbarroja" class="node-radio">
+            <input type="radio" name="hist-node" id="n-stalingrado" class="node-radio">
+            <input type="radio" name="hist-node" id="n-normandia" class="node-radio">
+            <input type="radio" name="hist-node" id="n-ardenas" class="node-radio">
+            <input type="radio" name="hist-node" id="n-pearl" class="node-radio">
+            <input type="radio" name="hist-node" id="n-bombas" class="node-radio">
+
+            <!-- Tablero con cuadrícula cartográfica (.map-canvas) -->
+            <div class="node-scroll-container">
+                <div class="map-canvas node-canvas">
+
+                    <!-- Flechas SVG en color tinta oscura (#2c2a29) y rojo archivo (#8b2626) -->
+                    <svg class="node-lines" viewBox="0 0 1280 510">
+                        <defs>
+                            <marker id="arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#2c2a29" />
+                            </marker>
+                        </defs>
+
+                        <!-- Versalles -> Ascenso de Hitler -->
+                        <path d="M 215 70 C 245 70, 245 120, 275 120" fill="none" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+                        <!-- Gran Depresión -> Ascenso de Hitler -->
+                        <path d="M 215 220 C 245 220, 245 150, 275 150" fill="none" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+
+                        <!-- Hitler -> Reichstag -> Pacto -->
+                        <line x1="367" y1="168" x2="367" y2="255" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+                        <line x1="367" y1="330" x2="367" y2="412" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+
+                        <!-- Hitler -> Invasión a Polonia -->
+                        <path d="M 460 125 C 495 125, 495 65, 530 65" fill="none" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+                        <!-- Pacto Ribbentrop-Mólotov -> Invasión a Polonia -->
+                        <path d="M 460 445 C 500 445, 500 85, 530 85" fill="none" stroke="#8b2626" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrow-ink)" />
+
+                        <!-- Polonia -> Barbarroja -> Stalingrado -->
+                        <line x1="622" y1="100" x2="622" y2="195" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+                        <line x1="622" y1="265" x2="622" y2="365" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+
+                        <!-- Stalingrado -> Día D Normandía -->
+                        <path d="M 650 368 C 720 350, 720 175, 790 175" fill="none" stroke="#8b2626" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrow-ink)" />
+
+                        <!-- Día D -> Batalla de las Ardenas -->
+                        <line x1="877" y1="190" x2="877" y2="285" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+
+                        <!-- Pearl Harbor -> Día D -->
+                        <path d="M 1040 85 C 1005 85, 1005 145, 970 145" fill="none" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+
+                        <!-- Batalla de las Ardenas -> Bombas Atómicas -->
+                        <path d="M 970 320 C 1005 320, 1005 290, 1040 290" fill="none" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+
+                        <!-- Pearl Harbor -> Bombas Atómicas -->
+                        <line x1="1132" y1="100" x2="1132" y2="255" stroke="#2c2a29" stroke-width="1.8" marker-end="url(#arrow-ink)" />
+                    </svg>
+
+                    <!-- COLUMNA 1: CAUSAS ESTRUCTURALES -->
+                    <label for="n-versalles" class="hist-node cat-causas" style="top: 35px; left: 30px;">
+                        <strong>Tratado de Versalles</strong>
+                        <span>1919 · Causa</span>
+                    </label>
+
+                    <label for="n-depresion" class="hist-node cat-causas" style="top: 185px; left: 30px;">
+                        <strong>Gran Depresión</strong>
+                        <span>1929 · Causa</span>
+                    </label>
+
+                    <!-- COLUMNA 2: ASCENSO DEL NAZISMO -->
+                    <label for="n-hitler" class="hist-node cat-nazismo" style="top: 102px; left: 275px;">
+                        <strong>Ascenso de Hitler</strong>
+                        <span>1933 · Dictadura</span>
+                    </label>
+
+                    <label for="n-reichstag" class="hist-node cat-nazismo" style="top: 258px; left: 275px;">
+                        <strong>Incendio del Reichstag</strong>
+                        <span>1933 · Plenos poderes</span>
+                    </label>
+
+                    <label for="n-pacto" class="hist-node cat-nazismo" style="top: 415px; left: 275px;">
+                        <strong>Pacto Ribbentrop-Mólotov</strong>
+                        <span>1939 · Alianza táctica</span>
+                    </label>
+
+                    <!-- COLUMNA 3: FRENTE ORIENTAL -->
+                    <label for="n-polonia" class="hist-node cat-oriental" style="top: 35px; left: 530px;">
+                        <strong>Invasión a Polonia</strong>
+                        <span>1939 · Inicio de la guerra</span>
+                    </label>
+
+                    <label for="n-barbarroja" class="hist-node cat-oriental" style="top: 198px; left: 530px;">
+                        <strong>Operación Barbarroja</strong>
+                        <span>1941 · Frente oriental</span>
+                    </label>
+
+                    <label for="n-stalingrado" class="hist-node cat-oriental" style="top: 368px; left: 530px;">
+                        <strong>Batalla de Stalingrado</strong>
+                        <span>1942-1943 · Punto de giro</span>
+                    </label>
+
+                    <!-- COLUMNA 4: FRENTE OCCIDENTAL -->
+                    <label for="n-normandia" class="hist-node cat-occidental" style="top: 125px; left: 785px;">
+                        <strong>Día D - Normandía</strong>
+                        <span>1944 · Frente occidental</span>
+                    </label>
+
+                    <label for="n-ardenas" class="hist-node cat-occidental" style="top: 288px; left: 785px;">
+                        <strong>Batalla de las Ardenas</strong>
+                        <span>1944-1945 · Contraofensiva</span>
+                    </label>
+
+                    <!-- COLUMNA 5: FRENTE DEL PACÍFICO -->
+                    <label for="n-pearl" class="hist-node cat-pacifico" style="top: 35px; left: 1040px;">
+                        <strong>Pearl Harbor</strong>
+                        <span>1941 · Frente del Pacífico</span>
+                    </label>
+
+                    <label for="n-bombas" class="hist-node cat-pacifico" style="top: 258px; left: 1040px;">
+                        <strong>Bombas Atómicas</strong>
+                        <span>1945 · Fin de la guerra</span>
+                    </label>
+
+                </div>
+            </div>
+
+            <!-- Leyenda de categorías -->
+            <div class="node-legend">
+                <div class="legend-item"><span class="legend-dot" style="background: var(--accent-olive);"></span> Causas estructurales</div>
+                <div class="legend-item"><span class="legend-dot" style="background: var(--accent-red);"></span> Ascenso del nazismo</div>
+                <div class="legend-item"><span class="legend-dot" style="background: #a66a2c;"></span> Frente oriental</div>
+                <div class="legend-item"><span class="legend-dot" style="background: #2f4f6b;"></span> Frente occidental</div>
+                <div class="legend-item"><span class="legend-dot" style="background: #366963;"></span> Frente del Pacífico</div>
+            </div>
+
+            <!-- Reutiliza .battle-intel, .intel-card y .file-stamp de tu CSS -->
+            <div class="battle-intel">
+                <article id="d-versalles" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 01 // CAUSA ESTRUCTURAL (1919)</span>
+                    <h3>Tratado de Versalles</h3>
+                    <p><strong>Conexión histórica:</strong> Impone a Alemania la pérdida del 13% de su territorio, la desmilitarización de Renania (frontera oeste en el río Rin) y fuertes reparaciones económicas tras la Primera Guerra Mundial. Alimenta el resentimiento y el mito de la <em>Dolchstoßlegende</em> ("puñalada por la espalda"), preparando el terreno para el ascenso de Hitler.</p>
+                </article>
+
+                <article id="d-depresion" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 02 // CAUSA ESTRUCTURAL (1929)</span>
+                    <h3>Gran Depresión</h3>
+                    <p><strong>Conexión histórica:</strong> Genera hiperinflación y desempleo masivo en Alemania, debilitando el gobierno de Paul von Hindenburg y multiplicando el apoyo social al discurso radical de Adolf Hitler.</p>
+                </article>
+
+                <article id="d-hitler" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 03 // ASCENSO DEL NAZISMO (1933 - 1934)</span>
+                    <h3>Ascenso de Adolf Hitler</h3>
+                    <p><strong>Actores conectados:</strong> Adolf Hitler y Paul von Hindenburg. Nombrado Canciller en enero de 1933, se proclama <em>Führer</em> del Tercer Reich en 1934 bajo una ideología de supremacía aria, antisemitismo radical y totalitarismo.</p>
+                </article>
+
+                <article id="d-reichstag" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 04 // CONSOLIDACIÓN TOTALITARIA (1933)</span>
+                    <h3>Incendio del Reichstag</h3>
+                    <p><strong>Conexión histórica:</strong> Suceso utilizado por el régimen nazi como pretexto para suprimir libertades políticas y aprobar la declaración de plenos poderes (facultades extraordinarias) a favor de Hitler.</p>
+                </article>
+
+                <article id="d-pacto" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 05 // DIPLOMACIA TÁCTICA (AGOSTO 1939)</span>
+                    <h3>Pacto Ribbentrop-Mólotov</h3>
+                    <p><strong>Actores conectados:</strong> Adolf Hitler e Iósif Stalin. Pacto de no agresión germano-soviético que acordaba el reparto de Polonia, permitiendo a Alemania invadir Europa occidental y central sin abrir inicialmente dos frentes.</p>
+                </article>
+
+                <article id="d-polonia" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 06 // FRENTE ORIENTAL (SEPTIEMBRE 1939)</span>
+                    <h3>Invasión a Polonia</h3>
+                    <p><strong>Actores conectados:</strong> Alemania Nazi, URSS y Papa Pío XII (condena mediante la encíclica <em>Summi Pontificatus</em>). Detona formalmente la Segunda Guerra Mundial en Europa.</p>
+                </article>
+
+                <article id="d-barbarroja" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 07 // FRENTE ORIENTAL (1941)</span>
+                    <h3>Operación Barbarroja</h3>
+                    <p><strong>Actores conectados:</strong> Adolf Hitler vs. Iósif Stalin. Ruptura del Pacto Ribbentrop-Mólotov mediante la invasión alemana a la Unión Soviética, culminando en la Batalla de Moscú y dando paso a Stalingrado.</p>
+                </article>
+
+                <article id="d-stalingrado" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 08 // FRENTE ORIENTAL (17 JUL 1942 - 2 FEB 1943)</span>
+                    <h3>Batalla de Stalingrado</h3>
+                    <p><strong>Actores conectados:</strong> Iósif Stalin (Operación Urano) vs. Adolf Hitler y fuerzas del Eje. Con entre 1.8 y 2 millones de bajas totales y +90% de la ciudad destruida, frena la ofensiva hacia el Cáucaso e inicia la marcha soviética hasta Berlín.</p>
+                </article>
+
+                <article id="d-normandia" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 09 // FRENTE OCCIDENTAL (6 DE JUNIO DE 1944)</span>
+                    <h3>Día D (Operación Overlord)</h3>
+                    <p><strong>Actores conectados:</strong> Winston Churchill, Franklin D. Roosevelt (acordado en Teherán, 1943) vs. Adolf Hitler. Desembarco aliado de ~156,000 soldados en Normandía que abre el frente occidental y permite liberar París.</p>
+                </article>
+
+                <article id="d-ardenas" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 10 // FRENTE OCCIDENTAL (16 DIC 1944 - 25 ENE 1945)</span>
+                    <h3>Batalla de las Ardenas</h3>
+                    <p><strong>Actores conectados:</strong> Adolf Hitler vs. Aliados (EE. UU., Reino Unido y Canadá). Última gran contraofensiva alemana; su derrota consume las reservas del Tercer Reich antes de la caída de Berlín.</p>
+                </article>
+
+                <article id="d-pearl" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 11 // FRENTE DEL PACÍFICO (7 DE DICIEMBRE DE 1941)</span>
+                    <h3>Bombardeo a Pearl Harbor</h3>
+                    <p><strong>Actores conectados:</strong> Isoroku Yamamoto, Emperador Hirohito vs. Franklin D. Roosevelt (pese al intento previo de mediación del Papa Pío XII en abril de 1941). Provoca el <em>"Discurso de la infamia"</em> y la entrada de EE. UU. a la guerra.</p>
+                </article>
+
+                <article id="d-bombas" class="intel-card">
+                    <span class="file-stamp">EXPEDIENTE 12 // FRENTE DEL PACÍFICO (6 Y 9 DE AGOSTO DE 1945)</span>
+                    <h3>Bombas Atómicas (Hiroshima y Nagasaki)</h3>
+                    <p><strong>Actores conectados:</strong> Harry S. Truman (sucesor de Roosevelt), Douglas MacArthur y Emperador Hirohito. Tras los bombardeos, Japón firma la rendición incondicional el 2 de septiembre de 1945 a bordo del USS Missouri, poniendo fin a la guerra.</p>
+                </article>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- Navegación Secuencial entre capítulos -->
+    <footer>
+        <div class="chapter-nav">
+            <a href="tecnologia.html" class="prev-page">← Anterior: Ciencia y Espionaje</a>
+            <a href="quiz.html" class="next-page">Capítulo Final: Evaluación Interactiva →</a>
+        </div>
+        <p style="margin-top: 1.5rem;">Material Didáctico de Historia Contemporánea | Proyecto Educativo HTML/CSS</p>
+    </footer>
+
+</body>
+</html>
