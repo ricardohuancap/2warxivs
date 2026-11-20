@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segunda Guerra Mundial: Nazismo y Fascismo | Los 3 Frentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!--Navegación-->
+    <header class="main-header">
+        <div class="logo">GRUPO 4 • WARXIVS</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">1. Causas e Inicio</a></li>
+                <li><a href="frentes.html" class="active">2. Frentes de Batalla</a></li>
+                <li><a href="tecnologia.html">3. Personajes</a></li>
+                <li><a href="vida-civil.html">4. Mapa de conexiones</a></li>
+                <li><a href="quiz.html" class="btn-quiz">Ponte a Prueba</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Mapa de Conexiones: Los 3 Frentes de Batalla</h1>
+            
+        </section>
+
+        <!-- 3 frentes -->
+        <section class="theaters-wrapper">
+            
+            
+            <input type="radio" name="theater-tab" id="tab-occidental" class="tab-radio" checked>
+            <input type="radio" name="theater-tab" id="tab-oriental" class="tab-radio">
+            <input type="radio" name="theater-tab" id="tab-pacifico" class="tab-radio">
+
+            
+            <div class="tab-buttons">
+                <label for="tab-occidental" class="tab-btn">1. Europa Occidental</label>
+                <label for="tab-oriental" class="tab-btn">2. Frente Oriental</label>
+                <label for="tab-pacifico" class="tab-btn">3. Frente del Pacífico</label>
+            </div>
+
+            <!-- FRENTE 1: EUROPA OCCIDENTAL (Normandía y Ardenas) -->
+            <div class="tab-content" id="content-occidental">
+                <div class="theater-intro">
+                    <h2>Frente de Europa Occidental</h2>
+                    <p><strong>Actores clave conectados:</strong> Winston Churchill, Adolf Hitler, Franklin D. Roosevelt y el Papa Pío XII (como mediador diplomático).</p>
+                </div>
+
+                <div class="tactical-board">
+                    <input type="radio" name="occ-battle" id="bat-normandia" class="pin-radio" checked>
+                    <input type="radio" name="occ-battle" id="bat-ardenas" class="pin-radio">
+
+                    <div class="map-canvas map-europe">
+                        <span class="map-watermark">MAPA TÁCTICO: EUROPA OCCIDENTAL (1944-1945)</span>
+                        
+                        <label for="bat-normandia" class="map-pin" style="top: 46%; left: 32%;">
+                            <span class="pulse"></span>1. Día D (Normandía)
+                        </label>
+                        
+                        <label for="bat-ardenas" class="map-pin" style="top: 42%; left: 54%;">
+                            <span class="pulse"></span>2. Batalla de las Ardenas
+                        </label>
+                    </div>
+
+                    <div class="battle-intel">
+                        <!--  Día D -->
+                        <div class="intel-card" id="info-normandia">
+                            <span class="badge badge-allies">6 de junio de 1944 • Costa de Normandía, noroeste de Francia</span>
+                            <h3>Día D (Operación Overlord)</h3>
+                            <p><strong>Definición:</strong> Desembarco anfibio y aerotransportado (Operación Tonga de los británicos; operaciones Albany y Boston de los estadounidenses) para formar múltiples cabezas de playa y abrir un nuevo frente occidental. Planificada en 1943 por Winston Churchill y Franklin D. Roosevelt en la Conferencia de Teherán.</p>
+                            <p><strong>Bandos beligerantes:</strong> Aliados (EE. UU., Reino Unido, Canadá, Francia Libre y Polonia) vs. Alemania Nazi.</p>
+                            <p><strong>Resultado y consecuencias:</strong> Victoria contundente aliada; se tomaron puntos logísticos críticos en las costas y se establecieron cabezas de playa para avanzar hacia París y liberar Francia del control de Hitler.</p>
+                            <p><strong>Saldo humano y material:</strong> Más de 4,400 bajas aliadas confirmadas y entre 4,000 a 9,000 bajas alemanas ese día; destrucción extensiva de fortificaciones alemanas, pueblos y carreteras.</p>
+                            <p><strong>Efectivos desplegados:</strong> Aliados: ~156,000 soldados solo el 6 de junio, +6,000 embarcaciones y 11,590 aviones. Alemania: ~60,000 soldados atrincherados, 100 blindados y ~200 aviones.</p>
+                            <p><strong>Material audiovisual de referencia:</strong> <em>Salvar al soldado Ryan</em> (1998) y miniserie <em>Band of Brothers</em> (2001).</p>
+                        </div>
+
+                        <!-- Batalla de las Ardenas -->
+                        <div class="intel-card" id="info-ardenas">
+                            <span class="badge badge-turning">16 Dic 1944 – 25 Ene 1945 • Región de las Ardenas (Frente ~130 km)</span>
+                            <h3>Batalla de las Ardenas</h3>
+                            <p><strong>Definición:</strong> Última gran contraofensiva alemana para recuperar terreno en Francia, iniciada como ataque sorpresa entre Bélgica, Luxemburgo y Francia bajo clima extremadamente frío y recursos escasos.</p>
+                            <p><strong>Bandos beligerantes:</strong> Aliados (EE. UU., Reino Unido y Canadá) vs. Alemania Nazi.</p>
+                            <p><strong>Resultado y consecuencias:</strong> Victoria aliada; se contuvo el avance hostil y se consumieron gran parte de las reservas y suministros de Hitler de cara a la defensa del río Rin y de Berlín.</p>
+                            <p><strong>Saldo humano y material:</strong> Cerca de 75,000 bajas aliadas y más de 80,000 alemanes heridos, abatidos o capturados.</p>
+                            <p><strong>Efectivos desplegados:</strong> Alemania: +300,000 efectivos iniciales, ~2,000 blindados/artillería y 2,400 aviones. Aliados: ~80,000 efectivos al inicio, subiendo a +600,000 con refuerzos, 2,400 blindados y ~6,000 aeronaves.</p>
+                            <p><strong>Material audiovisual de referencia:</strong> Miniserie <em>Band of Brothers</em> (2001) y <em>Call of Duty: WWII</em> (Misión 9 de la campaña).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRENTE 2: FRENTE ORIENTAL (Stalingrado)-->
+            <div class="tab-content" id="content-oriental">
+                <div class="theater-intro">
+                    <h2>Frente Oriental (Unión Soviética vs. Eje)</h2>
+                    <p><strong>Actores clave conectados:</strong> Adolf Hitler e Iósif Stalin.</p>
+                </div>
+
+                <div class="tactical-board">
+                    <input type="radio" name="ori-battle" id="bat-stalingrado" class="pin-radio" checked>
+
+                    <div class="map-canvas map-europe">
+                        <span class="map-watermark">MAPA TÁCTICO: FRENTE ORIENTAL (1942-1943)</span>
+                        
+                        <label for="bat-stalingrado" class="map-pin" style="top: 48%; left: 74%;">
+                            <span class="pulse"></span>Batalla de Stalingrado
+                        </label>
+                    </div>
+
+                    <div class="battle-intel">
+                        <div class="intel-card" id="info-stalingrado">
+                            <span class="badge badge-turning">17 Jul 1942 – 2 Feb 1943 • Stalingrado (hoy Volgogrado, URSS)</span>
+                            <h3>Batalla de Stalingrado</h3>
+                            <p><strong>Definición:</strong> Ofensiva urbana a gran escala al suroeste de la Unión Soviética mediante la cual el Eje buscaba abrir una brecha hacia los campos petrolíferos del Cáucaso.</p>
+                            <p><strong>Bandos beligerantes:</strong> Unión Soviética (URSS) vs. Potencias del Eje (Alemania Nazi, Rumania, Hungría e Italia).</p>
+                            <p><strong>Resultado y consecuencias:</strong> Victoria soviética; el avance del Eje fue detenido y las fuerzas de Stalin iniciaron una contraofensiva que llegaría hasta el búnker de Hitler en Berlín.</p>
+                            <p><strong>Saldo humano y material:</strong> Entre 1.8 y 2 millones de bajas totales, cerca de 40,000 civiles soviéticos muertos y más del 90 % de la ciudad destruida.</p>
+                            <p><strong>Efectivos desplegados:</strong> Eje: ~1 millón de soldados, 500 tanques, 1,000 aviones y +10,000 piezas de artillería. Contraofensiva soviética (<em>Operación Urano</em>): +1,100,000 soldados, 900 tanques, 1,100 aviones y ~13,000 piezas de artillería.</p>
+                            <p><strong>Material audiovisual de referencia:</strong> <em>Enemy at the Gates</em> (2001), centrada en el duelo de francotiradores entre Vasili Záitsev y Erwin König.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRENTE 3: FRENTE DEL PACÍFICO (Pearl Harbor y Bombas atómicas) -->
+            <div class="tab-content" id="content-pacifico">
+                <div class="theater-intro">
+                    <h2>Frente del Pacífico</h2>
+                    <p><strong>Actores clave conectados:</strong> Franklin D. Roosevelt, Isoroku Yamamoto, Douglas MacArthur, Harry S. Truman y el Emperador Hirohito.</p>
+                </div>
+
+                <div class="tactical-board">
+                    <input type="radio" name="pac-battle" id="bat-pearl" class="pin-radio" checked>
+                    <input type="radio" name="pac-battle" id="bat-bombas" class="pin-radio">
+
+                    <div class="map-canvas map-pacific">
+                        <span class="map-watermark">MAPA TÁCTICO: OCÉANO PACÍFICO (1941-1945)</span>
+                        
+                        <label for="bat-pearl" class="map-pin" style="top: 46%; left: 78%;">
+                            <span class="pulse"></span>1. Pearl Harbor
+                        </label>
+                        
+                        <label for="bat-bombas" class="map-pin" style="top: 44%; left: 24%;">
+                            <span class="pulse"></span>2. Hiroshima y Nagasaki
+                        </label>
+                    </div>
+
+                    <div class="battle-intel">
+                        <!-- Acontecimiento 4: Pearl Harbor -->
+                        <div class="intel-card" id="info-pearl">
+                            <span class="badge badge-axis">7 de diciembre de 1941 • Base Naval de Pearl Harbor, Hawái</span>
+                            <h3>Bombardeo a Pearl Harbor</h3>
+                            <p><strong>Definición:</strong> Ataque aéreo e inopinado ejecutado por la Armada Imperial Japonesa contra la base naval de la Flota del Pacífico de EE. UU. en la isla de Oahu.</p>
+                            <p><strong>Bandos beligerantes:</strong> Imperio del Japón vs. Estados Unidos.</p>
+                            <p><strong>Resultado y consecuencias:</strong> Victoria táctica japonesa; EE. UU. entró inmediatamente en la guerra tras el «Discurso de la Infamia» de Roosevelt (Alemania e Italia le declararon la guerra el 11 de diciembre) y el almirante Isoroku Yamamoto fue designado objetivo prioritario.</p>
+                            <p><strong>Saldo humano y material:</strong> 2,403 estadounidenses muertos (68 civiles) y 1,178 heridos; 19 buques dañados o destruidos (incluidos 8 acorazados, quedando totalmente destruidos el <em>USS Arizona</em> y el <em>USS Oklahoma</em>) y 188 aviones destruidos. Al quedar intactos los depósitos de combustible, la base volvió a estar 100 % operativa en menos de 6 meses. Japón perdió 64 militares, 29 aviones y 5 minisubmarinos.</p>
+                            <p><strong>Efectivos desplegados:</strong> Japón: ~414 aviones, 6 portaaviones, 2 acorazados, 3 cruceros, 9 destructores y 5 minisubmarinos. EE. UU.: ~390 aviones, 8 acorazados amarrados y 50 buques adicionales.</p>
+                            <p><strong>Material audiovisual de referencia:</strong> <em>Tora! Tora! Tora!</em> (1970).</p>
+                        </div>
+
+                        <!-- Acontecimiento 5: Bombas Atómicas -->
+                        <div class="intel-card" id="info-bombas">
+                            <span class="badge badge-turning">6 y 9 de agosto de 1945 • Hiroshima y Nagasaki, Japón</span>
+                            <h3>Bombas Atómicas</h3>
+                            <p><strong>Definición:</strong> Ultimátum estadounidense autorizado bajo el gobierno de Harry S. Truman para forzar la rendición del Imperio de Japón.</p>
+                            <p><strong>Bandos beligerantes:</strong> Estados Unidos vs. Imperio del Japón.</p>
+                            <p><strong>Resultado y consecuencias:</strong> El ministro de Asuntos Exteriores del gobierno del emperador Hirohito firmó la rendición incondicional el 15 de agosto de 1945 junto con el general Douglas MacArthur, marcando el fin definitivo de la Segunda Guerra Mundial e inicio formal de la era nuclear.</p>
+                            <p><strong>Saldo humano y material:</strong> Hiroshima: 70,000 a 80,000 muertos solo el día del lanzamiento (140,000 a finales de 1945 por radiación) y 70 % de infraestructura destruida. Nagasaki: +35,000 muertos el primer día (70,000 para finales de 1945).</p>
+                            <p><strong>Efectivos desplegados:</strong> Bombarderos estratégicos B-29 Superfortress (<em>Enola Gay</em> para Hiroshima y <em>Bockscar</em> para Nagasaki, con aviones de observación) frente a ~40,000 efectivos de guarniciones militares locales.</p>
+                            <p><strong>Material audiovisual de referencia:</strong> Canción <em>Enola Gay</em> de Orchestral Manoeuvres in the Dark (1980).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-check" style="text-align: center;">
+    <h2>Video Documental Original del Equipo (Grupo 4)</h2>
+    <p style="margin-bottom: 1rem;">Síntesis audiovisual sobre el ascenso del fascismo y el nazismo y sus consecuencias en Europa.</p>
+    
+    <iframe 
+        width="100%" 
+        height="405" 
+        style="max-width: 720px; border-radius: 6px; border: 2px solid var(--ink-dark);" 
+        src="https://www.youtube.com/embed/9u_COn1refs" 
+        title="Video Documental Grupo 4" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+</section>
+
+        <!-- Cuadro Resumen de Conexiones por Frente -->
+        <section class="comparison-section">
+            <h2>Síntesis del Mapa de Conexiones por Frente</h2>
+            <div class="table-responsive">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Frente</th>
+                            <th>Acontecimientos Clave</th>
+                            <th>Actores Históricos Vinculados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Europa Occidental</strong></td>
+                            <td>Día D (Normandía) y Batalla de las Ardenas</td>
+                            <td>Winston Churchill, Adolf Hitler, Franklin D. Roosevelt y Papa Pío XII (mediador)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frente Oriental</strong></td>
+                            <td>Batalla de Stalingrado (Operación Urano)</td>
+                            <td>Adolf Hitler e Iósif Stalin</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frente del Pacífico</strong></td>
+                            <td>Bombardeo a Pearl Harbor y Bombas Atómicas</td>
+                            <td>Franklin D. Roosevelt, Isoroku Yamamoto, Douglas MacArthur, Harry S. Truman y Emperador Hirohito</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="chapter-nav">
+            <a href="index.html" class="prev-page">← Anterior: Causas e Inicio</a>
+            <a href="tecnologia.html" class="next-page">Siguiente: Ciencia y Personajes →</a>
+        </div>
+        <p style="margin-top: 1.5rem;">Grupo 4 • Segunda Guerra Mundial: Nazismo en Alemania y Fascismo en Italia</p>
+    </footer>
+
+</body>
+</html>
