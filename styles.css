@@ -1,0 +1,810 @@
+/* ===== Base ===== */
+:root {
+    --bg-paper: #f4f1ea;
+    --ink-dark: #2c2a29;
+    --accent-red: #8b2626;
+    --accent-olive: #4a5343;
+    --border-color: #d1c9b8;
+    --gold: #e6c27a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    display: none;
+}
+
+/* todos los radios/checkbox son solo interruptores ocultos */
+body {
+    font-family: 'Georgia', serif;
+    background: var(--bg-paper);
+    color: var(--ink-dark);
+    line-height: 1.6;
+}
+
+h2 {
+    color: var(--accent-olive);
+    margin-bottom: 1rem;
+}
+
+.flip-section h2,
+.enigma-simulator h2 {
+    margin-bottom: 1.2rem;
+}
+
+.section-lead {
+    margin-bottom: 1.5rem;
+    color: #4a4744;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--accent-red);
+    margin-bottom: 0.5rem;
+}
+
+/* Tipografías agrupadas */
+h2,
+.nav-links a,
+.quiz-label,
+.feedback,
+.next-page,
+.prev-page,
+.history-table th,
+.tab-btn,
+.map-pin,
+.hint,
+.flip-card-back h4,
+.instruction-note,
+.hist-node,
+.node-legend {
+    font-family: sans-serif;
+}
+
+.map-watermark,
+.file-stamp,
+.rotor-title,
+.rotor-key,
+.enigma-output,
+.hist-node span {
+    font-family: monospace;
+}
+
+/* ===== Navegación y pie ===== */
+.main-header {
+    background: var(--ink-dark);
+    color: var(--bg-paper);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 4px solid var(--accent-red);
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+    border-bottom: 2px solid var(--accent-red);
+}
+
+.btn-quiz {
+    background: var(--accent-red);
+    color: #fff !important;
+    border-radius: 4px;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.next-page,
+.prev-page {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: var(--ink-dark);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ===== Línea de tiempo (<details>) ===== */
+.timeline-item {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-olive);
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.timeline-item summary {
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    background: #faf8f5;
+    user-select: none;
+}
+
+.timeline-item summary:hover {
+    background: #efeae0;
+}
+
+.timeline-content {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ===== Quiz 100% CSS ===== */
+.interactive-check {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #ebe6dc;
+    border-radius: 6px;
+}
+
+.quiz-box {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.quiz-label {
+    display: block;
+    padding: 0.8rem 1rem;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.quiz-label:hover {
+    background: #f9f9f9;
+}
+
+.feedback {
+    display: none;
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.quiz-input:checked+.quiz-label {
+    font-weight: bold;
+    border-color: var(--ink-dark);
+}
+
+.quiz-input:checked+.quiz-label+.feedback {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.correct {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.incorrect {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* ===== Tabla comparativa ===== */
+.comparison-section {
+    margin-top: 2.5rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+.history-table th,
+.history-table td {
+    padding: 0.9rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.history-table th {
+    background: var(--ink-dark);
+    color: var(--bg-paper);
+}
+
+.history-table tr:nth-child(even) {
+    background: #faf8f5;
+}
+
+/* ===== Frentes: pestañas ===== */
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.8rem 1.4rem;
+    background: #e4ded0;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--ink-dark);
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    background: #d8d0be;
+}
+
+#tab-occidental:checked~.tab-buttons [for=tab-occidental],
+#tab-oriental:checked~.tab-buttons [for=tab-oriental],
+#tab-pacifico:checked~.tab-buttons [for=tab-pacifico] {
+    background: var(--accent-olive);
+    color: #fff;
+    border-color: var(--accent-olive);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.35s ease;
+}
+
+#tab-occidental:checked~#content-occidental,
+#tab-oriental:checked~#content-oriental,
+#tab-pacifico:checked~#content-pacifico {
+    display: block;
+}
+
+.theater-intro {
+    margin-bottom: 1.2rem;
+}
+
+.theater-intro h2 {
+    font-family: 'Georgia', serif;
+    margin-bottom: 0.4rem;
+}
+
+/* ===== Tablero táctico, mapas y fichas ===== */
+.tactical-board {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    background: #fff;
+    padding: 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.map-canvas {
+    position: relative;
+    height: 240px;
+    border-radius: 4px;
+    border: 2px solid var(--ink-dark);
+    overflow: hidden;
+    /* Mantiene la cuadrícula encima del mapa */
+    background-image: linear-gradient(rgba(44, 42, 41, 0.12) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(44, 42, 41, 0.12) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.map-europe {
+    background-color: #dcd5c1;
+    /* Combina la cuadrícula (arriba) con la imagen del mapa (abajo) */
+    background-image: 
+        linear-gradient(rgba(44, 42, 41, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 42, 41, 0.12) 1px, transparent 1px),
+        url('imagen3/Europa.jpg'); /* <-- Pon aquí la ruta real de tu imagen */
+    background-size: 30px 30px, 30px 30px, 100% 100%;
+    background-position: top left, top left, center;
+    background-repeat: repeat, repeat, no-repeat;
+}
+.map-pacific {
+    background-color: #c5d5db;
+    background-image: 
+        linear-gradient(rgba(44, 42, 41, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 42, 41, 0.12) 1px, transparent 1px),
+        url('imagen3/Pacifico.jpg');
+    background-size: 30px 30px, 30px 30px, 100% 100%;
+    background-repeat: repeat, repeat, no-repeat;
+}
+
+.map-watermark {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.55);
+    letter-spacing: 1px;
+}
+
+.map-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: var(--ink-dark);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: bold;
+    padding: 0.45rem 0.85rem;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.map-pin:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+.pulse {
+    width: 8px;
+    height: 8px;
+    background: #ff4d4d;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#bat-normandia:checked~.map-canvas [for=bat-normandia],
+#bat-ardenas:checked~.map-canvas [for=bat-ardenas],
+#bat-stalingrado:checked~.map-canvas [for=bat-stalingrado],
+#bat-pearl:checked~.map-canvas [for=bat-pearl],
+#bat-bombas:checked~.map-canvas [for=bat-bombas] {
+    background: var(--accent-red);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 0 3px #fff, 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.battle-intel {
+    background: #faf8f5;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent-red);
+    border-radius: 4px;
+}
+
+.intel-card {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.intel-card h3 {
+    margin: 0.6rem 0;
+    font-size: 1.4rem;
+    color: var(--ink-dark);
+}
+
+.intel-card p {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+#bat-normandia:checked~.battle-intel #info-normandia,
+#bat-ardenas:checked~.battle-intel #info-ardenas,
+#bat-stalingrado:checked~.battle-intel #info-stalingrado,
+#bat-pearl:checked~.battle-intel #info-pearl,
+#bat-bombas:checked~.battle-intel #info-bombas,
+#n-versalles:checked~.battle-intel #d-versalles,
+#n-depresion:checked~.battle-intel #d-depresion,
+#n-hitler:checked~.battle-intel #d-hitler,
+#n-reichstag:checked~.battle-intel #d-reichstag,
+#n-pacto:checked~.battle-intel #d-pacto,
+#n-polonia:checked~.battle-intel #d-polonia,
+#n-barbarroja:checked~.battle-intel #d-barbarroja,
+#n-stalingrado:checked~.battle-intel #d-stalingrado,
+#n-normandia:checked~.battle-intel #d-normandia,
+#n-ardenas:checked~.battle-intel #d-ardenas,
+#n-pearl:checked~.battle-intel #d-pearl,
+#n-bombas:checked~.battle-intel #d-bombas {
+    display: block;
+}
+
+/* ===== Tecnología: tarjetas giratorias 3D ===== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.flip-card {
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+    display: block;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-toggle:checked+.flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.flip-card-front {
+    background: #fff;
+    border-top: 5px solid var(--ink-dark);
+}
+
+.flip-card-front h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+}
+
+.file-stamp {
+    font-size: 0.72rem;
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.tech-icon img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid var(--border-color);
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: auto;
+}
+
+.flip-card-back {
+    background: var(--ink-dark);
+    color: var(--bg-paper);
+    transform: rotateY(180deg);
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-top: 5px solid var(--accent-red);
+}
+
+.flip-card-back h4 {
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.4rem;
+    width: 100%;
+}
+
+.flip-card-back p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 0.7rem;
+}
+
+/* ===== Simulador Enigma ===== */
+.enigma-simulator {
+    background: #232120;
+    color: var(--bg-paper);
+    padding: 2rem;
+    border-radius: 6px;
+    border: 2px solid #444;
+}
+
+.enigma-simulator h2 {
+    color: var(--gold);
+}
+
+.instruction-note {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.enigma-machine {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    background: #181716;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #3c3937;
+}
+
+.rotor-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: var(--ink-dark);
+    padding: 0.8rem;
+    border-radius: 4px;
+    text-align: center;
+    min-width: 85px;
+}
+
+.rotor-title {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-bottom: 0.3rem;
+}
+
+.rotor-key {
+    display: block;
+    padding: 0.4rem;
+    background: #3d3a38;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #555;
+    transition: 0.2s;
+}
+
+.rotor-key:hover {
+    background: #524e4b;
+}
+
+.rotor-input:checked+.rotor-key {
+    background: var(--gold);
+    color: #181716;
+    border-color: #fff;
+}
+
+.enigma-output {
+    flex: 1;
+    min-width: 260px;
+    background: #111;
+    padding: 1.2rem;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.cipher-text {
+    color: #ff6b6b;
+    font-size: 0.95rem;
+}
+
+.cipher-text code {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.decoded-text {
+    display: none;
+    color: #69db7c;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    animation: fadeIn 0.4s ease;
+}
+
+.enigma-machine:has(#r1-b:checked):has(#r2-4:checked):has(#r3-x:checked) .cipher-text {
+    display: none;
+}
+
+.enigma-machine:has(#r1-b:checked):has(#r2-4:checked):has(#r3-x:checked) .decoded-text {
+    display: block;
+}
+
+/* ===== Mapa de nodos (vida-civil) ===== */
+.node-scroll-container {
+    overflow-x: auto;
+    border-radius: 4px;
+    border: 2px solid var(--ink-dark);
+    background: var(--bg-paper);
+}
+
+.node-canvas {
+    width: 1280px;
+    height: 510px;
+    background-color: #ebe6dc;
+    border: none;
+}
+
+.node-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hist-node {
+    position: absolute;
+    width: 185px;
+    padding: 0.8rem 0.9rem;
+    background: #faf8f5;
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--ink-dark);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 2;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(44, 42, 41, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.hist-node:hover {
+    transform: translateY(-3px);
+    background: #efeae0;
+}
+
+.hist-node strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--m, var(--ink-dark));
+    margin-bottom: 0.25rem;
+    line-height: 1.25;
+}
+
+.hist-node span {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--s, #5c5854);
+}
+
+.cat-causas {
+    border-left-color: var(--accent-olive);
+}
+
+.cat-nazismo {
+    border-left-color: var(--accent-red);
+}
+
+.cat-oriental {
+    border-left-color: #a66a2c;
+}
+
+.cat-occidental {
+    border-left-color: #2f4f6b;
+}
+
+.cat-pacifico {
+    border-left-color: #366963;
+}
+
+/* Nodo activo: --m y --s recolorean el título y el subtítulo */
+#n-versalles:checked~.node-scroll-container [for=n-versalles],
+#n-depresion:checked~.node-scroll-container [for=n-depresion],
+#n-hitler:checked~.node-scroll-container [for=n-hitler],
+#n-reichstag:checked~.node-scroll-container [for=n-reichstag],
+#n-pacto:checked~.node-scroll-container [for=n-pacto],
+#n-polonia:checked~.node-scroll-container [for=n-polonia],
+#n-barbarroja:checked~.node-scroll-container [for=n-barbarroja],
+#n-stalingrado:checked~.node-scroll-container [for=n-stalingrado],
+#n-normandia:checked~.node-scroll-container [for=n-normandia],
+#n-ardenas:checked~.node-scroll-container [for=n-ardenas],
+#n-pearl:checked~.node-scroll-container [for=n-pearl],
+#n-bombas:checked~.node-scroll-container [for=n-bombas] {
+    --m: var(--bg-paper);
+    --s: var(--gold);
+    background: var(--ink-dark);
+    border-color: var(--ink-dark);
+    box-shadow: 0 0 0 3px var(--accent-red), 0 6px 12px rgba(0, 0, 0, 0.25);
+    transform: scale(1.04);
+}
+
+.node-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding: 0.8rem 1rem;
+    background: #faf8f5;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: bold;
+}
+
+.legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+}
